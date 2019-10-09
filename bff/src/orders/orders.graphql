@@ -1,0 +1,31 @@
+type Query {
+  orders: [Order]
+}
+
+type Mutation {
+  postOrder(data: OrderInput): Order
+}
+
+input OrderInput {
+  userId: Int
+  itemsId: [OrderItemInput]
+}
+
+input OrderItemInput {
+  id: ID
+  quantity: Int
+}
+
+type Order {
+  id: ID
+  user: User
+  orderItems: [OrderItem]
+  total: Float
+}
+
+type OrderItem {
+  id: ID
+  quantity: Int
+  name: String
+  price: Float
+}
